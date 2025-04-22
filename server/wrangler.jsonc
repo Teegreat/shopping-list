@@ -1,0 +1,37 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "server",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-04-19",
+
+  "observability": {
+    "enabled": true
+  },
+
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "GroceriesDurableObjects",
+        "class_name": "GroceriesDurableObject"
+      }
+    ]
+  },
+
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": ["GroceriesDurableObject"]
+    }
+  ]
+
+  // Uncomment if you want smart placement
+  // "placement": { "mode": "smart" }
+
+  // Uncomment and configure environment variables
+  // "vars": { "MY_VARIABLE": "production_value" }
+  // "env": {
+  //   "production": {
+  //     "vars": { "MY_VARIABLE": "prod_value" }
+  //   }
+  // }
+}
